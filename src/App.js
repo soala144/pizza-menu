@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 const pizzaData = [
   {
     name: "Focaccia",
@@ -46,7 +47,7 @@ const pizzaData = [
 
 function App() {
   return (
-    <div className="App">
+    <div className="Container">
       <Header />
       <Menu />
       <Footer />
@@ -54,20 +55,24 @@ function App() {
   );
 }
 function Header() {
-  return <h1>Soala Pizza Co.</h1>;
+  return (
+    <header className="header">
+      <h1>Soala Pizza Co.</h1>;
+    </header>
+  );
 }
 
 function Menu() {
   return (
-    <div>
-      <h1>Our Menu </h1>
+    <main className="menu">
+      <h2>Our Menu </h2>
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
-    </div>
+    </main>
   );
 }
 
@@ -80,7 +85,7 @@ function Footer() {
   // if (hour <= closingHours && hour >= openingHours) alert("We're Open");
   // else alert("Sorry We're Closed");
   return (
-    <footer>
+    <footer className="footer">
       <p>{new Date().toLocaleTimeString()}. We are currently open</p>
     </footer>
   );
@@ -90,7 +95,7 @@ function Pizza() {
   return (
     <div>
       <img src="pizzas/spinaci.jpg" alt="" />
-      <h1>Pizza Prosciutto</h1>
+      <h3>Pizza Prosciutto</h3>
       <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
     </div>
   );
