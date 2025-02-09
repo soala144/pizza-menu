@@ -66,16 +66,33 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu </h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Pizza Spinachi"
+        ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
+        image="pizzas/spinaci.jpg"
+        price={10}
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
+        image="pizzas/funghi.jpg"
+        price={13}
+      />
     </main>
   );
 }
-
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.image} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 3}</span>
+      </div>
+    </div>
+  );
+}
 function Footer() {
   const hour = new Date().getHours();
   const openingHours = 12;
@@ -88,16 +105,6 @@ function Footer() {
     <footer className="footer">
       <p>{new Date().toLocaleTimeString()}. We are currently open</p>
     </footer>
-  );
-}
-
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="" />
-      <h3>Pizza Prosciutto</h3>
-      <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
-    </div>
   );
 }
 
