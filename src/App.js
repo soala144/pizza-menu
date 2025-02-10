@@ -66,7 +66,12 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu </h2>
-      <Pizza
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
+      </ul>
+      {/* <Pizza
         name="Pizza Spinachi"
         ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
         image="pizzas/spinaci.jpg"
@@ -77,20 +82,20 @@ function Menu() {
         ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
         image="pizzas/funghi.jpg"
         price={13}
-      />
+      /> */}
     </main>
   );
 }
 function Pizza(props) {
   return (
-    <div className="pizza">
-      <img src={props.image} alt={props.name} />
+    <li className="pizza">
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price + 3}</span>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>${props.pizzaObj.price + 3}</span>
       </div>
-    </div>
+    </li>
   );
 }
 function Footer() {
@@ -103,7 +108,9 @@ function Footer() {
   // else alert("Sorry We're Closed");
   return (
     <footer className="footer">
-      <p>{new Date().toLocaleTimeString()}. We are currently open</p>
+      <p className="order">
+        {new Date().toLocaleTimeString()}. We are currently open
+      </p>
     </footer>
   );
 }
