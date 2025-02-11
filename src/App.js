@@ -93,6 +93,7 @@ function Menu() {
   );
 }
 function Pizza(props) {
+  if (props.pizzaObj.soldOut) return null;
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
@@ -104,6 +105,7 @@ function Pizza(props) {
     </li>
   );
 }
+
 function Footer() {
   const hour = new Date().getHours();
   const openingHours = 1;
@@ -115,10 +117,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We're open till {closingHours}:00. You could order from us</p>
-          <button className="btn">Order Now</button>
-        </div>
+        <Order closing={closingHours} />
       ) : (
         <p>
           We're Happy to welcome you between {openingHours}:00 and{" "}
@@ -129,4 +128,12 @@ function Footer() {
   );
 }
 
+function Order(props) {
+  return (
+    <div className="order">
+      <p>We're open till {props.closing}:00. You could order from us</p>
+      <button className="btn">Order Now</button>
+    </div>
+  );
+}
 export default App;
