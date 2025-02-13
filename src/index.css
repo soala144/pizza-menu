@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
 
 * {
   margin: 0;
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: "Roboto Mono", sans-serif;
   color: #252525;
   font-weight: 400;
   background-color: #f7f2e9;
@@ -38,10 +38,7 @@ body {
 }
 
 .header h1 {
-  /* Non-accessible color */
   color: #edc84b;
-  /* color: #af8602; */
-
   text-transform: uppercase;
   text-align: center;
   font-size: 5.2rem;
@@ -55,7 +52,7 @@ body {
 .header h1::before,
 .header h1::after {
   display: block;
-  content: '';
+  content: "";
   height: 3px;
   width: 12rem;
   background-color: #edc84b;
@@ -101,8 +98,14 @@ body {
 .pizzas {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 4.8rem;
+}
+
+@media (max-width: 768px) {
+  .pizzas {
+    grid-template-columns: 1fr;
+  }
 }
 
 .pizza {
