@@ -4,4 +4,4 @@ Empoyes the useState hook, and made derived states from them.
 
 Thought me how to manipulate forms in jsx. Esrly react projects though. 
 
-Not so clean UI
+Not so clean UI and not completely responsive 
